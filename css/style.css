@@ -1,0 +1,319 @@
+/* --- CSS Variables for the Christmas Theme --- */
+:root {
+  --holiday-red: #c92a2a;
+  --holiday-green: #2b5933;
+  --holiday-cream: #fdfbf7;
+  --holiday-gold: #d4af37;
+  --text-dark: #4a4a4a;
+  --snow-white: #ffffff;
+}
+
+/* --- Global Resets & Typography --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--holiday-cream);
+  color: var(--text-dark);
+  font-family: 'Quicksand', sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: 'Mountains of Christmas', cursive;
+  font-weight: 700;
+}
+
+/* --- Utility Classes --- */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.candy-stripe-top {
+  height: 10px;
+  width: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--holiday-red),
+    var(--holiday-red) 20px,
+    var(--snow-white) 20px,
+    var(--snow-white) 40px
+  );
+}
+
+/* --- Header & Hero Section --- */
+header {
+  background-color: var(--holiday-red);
+  color: var(--snow-white);
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+header p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+/* Subtle Snow Animation in Header */
+.snowflake {
+  color: #fff;
+  font-size: 1em;
+  font-family: Arial;
+  text-shadow: 0 0 1px #000;
+  position: absolute;
+  top: -10%;
+  z-index: 1;
+  animation: snowflakes-fall 10s linear infinite, snowflakes-shake 3s ease-in-out infinite;
+  user-select: none;
+}
+
+@keyframes snowflakes-fall {
+  0% { top: -10%; }
+  100% { top: 100%; }
+}
+@keyframes snowflakes-shake {
+  0% { transform: translateX(0px); }
+  50% { transform: translateX(80px); }
+  100% { transform: translateX(0px); }
+}
+
+.snowflake:nth-of-type(1) { left: 1%; animation-delay: 0s, 0s; }
+.snowflake:nth-of-type(2) { left: 10%; animation-delay: 1s, 1s; }
+.snowflake:nth-of-type(3) { left: 20%; animation-delay: 6s, .5s; }
+.snowflake:nth-of-type(4) { left: 30%; animation-delay: 4s, 2s; }
+.snowflake:nth-of-type(5) { left: 40%; animation-delay: 2s, 2s; }
+.snowflake:nth-of-type(6) { left: 50%; animation-delay: 8s, 3s; }
+.snowflake:nth-of-type(7) { left: 60%; animation-delay: 6s, 2s; }
+.snowflake:nth-of-type(8) { left: 70%; animation-delay: 2.5s, 1s; }
+
+/* --- Navigation (Sticky) --- */
+nav {
+  background-color: var(--holiday-green);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 15px 0;
+  flex-wrap: wrap;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav a {
+  color: var(--snow-white);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: var(--holiday-gold);
+}
+
+/* --- Main Content Area --- */
+.intro-text {
+  text-align: center;
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.intro-text h2 {
+  color: var(--holiday-green);
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+/* --- Cookie Cards --- */
+.cookie-grid {
+  display: grid;
+  gap: 40px;
+  padding-bottom: 60px;
+}
+
+.cookie-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #eee;
+}
+
+/* Desktop View: Side by Side */
+@media (min-width: 768px) {
+  .cookie-card {
+    flex-direction: row;
+  }
+  .cookie-image {
+    flex: 1;
+    min-height: 300px;
+  }
+  .cookie-details {
+    flex: 2;
+  }
+}
+
+.cookie-image {
+  background-color: #ddd;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  min-height: 250px;
+}
+
+/* Placeholders for images using gradients/colors if no image files are present */
+.img-sugar { background: radial-gradient(circle, #fceabb 0%, #f8b500 100%); }
+.img-ginger { background: radial-gradient(circle, #8b5a2b 0%, #5c3a16 100%); }
+.img-crinkle { background: radial-gradient(circle, #553c36 0%, #2a1a16 100%); }
+.img-snicker { background: radial-gradient(circle, #eecda3 0%, #ef629f 100%); }
+.img-pb { background: radial-gradient(circle, #d2996e 0%, #6b4226 100%); }
+
+.cookie-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: rgba(255,255,255,0.9);
+  padding: 5px 15px;
+  border-top-right-radius: 10px;
+  font-weight: bold;
+  color: var(--holiday-red);
+}
+
+.cookie-details {
+  padding: 30px;
+}
+
+.cookie-details h3 {
+  color: var(--holiday-red);
+  font-size: 2rem;
+  margin-bottom: 10px;
+  border-bottom: 2px dashed var(--holiday-green);
+  display: inline-block;
+}
+
+.description {
+  margin-bottom: 20px;
+  font-style: italic;
+  color: #666;
+}
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 600px) {
+  .recipe-grid {
+    grid-template-columns: 1fr 1.5fr;
+  }
+}
+
+.ingredients h4, .instructions h4 {
+  color: var(--holiday-green);
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.ingredients ul {
+  list-style-type: none;
+  font-size: 0.95rem;
+}
+
+.ingredients ul li {
+  margin-bottom: 5px;
+  padding-left: 15px;
+  position: relative;
+}
+
+.ingredients ul li::before {
+  content: "•";
+  color: var(--holiday-red);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.instructions ol {
+  padding-left: 20px;
+  font-size: 0.95rem;
+}
+
+.instructions ol li {
+  margin-bottom: 8px;
+}
+
+/* --- Footer --- */
+footer {
+  background-color: var(--holiday-green);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+  border-top: 10px solid var(--holiday-red);
+}
+
+footer h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--holiday-gold);
+  color: var(--holiday-green);
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 0 #b08d1e;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #b08d1e;
+  background-color: #ffcd45;
+}
+
+.btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #b08d1e;
+}
+
+/* --- Mobile Fixes --- */
+@media (max-width: 600px) {
+  header h1 { font-size: 2.5rem; }
+  nav ul { flex-direction: column; align-items: center; }
+  nav ul li { margin: 5px 0; }
+}
