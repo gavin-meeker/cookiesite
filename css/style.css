@@ -6,6 +6,9 @@
   --holiday-gold: #d4af37;
   --text-dark: #4a4a4a;
   --snow-white: #ffffff;
+
+  /* Added: offset to prevent sticky nav from covering anchor targets */
+  --sticky-nav-offset: 40px;
 }
 
 /* --- Global Resets & Typography --- */
@@ -13,6 +16,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+/* Added: offsets in-page anchor scrolling for sticky nav */
+html {
+  scroll-padding-top: var(--sticky-nav-offset);
 }
 
 body {
@@ -157,6 +165,9 @@ nav a:hover {
 }
 
 .cookie-card {
+  /* Added: ensures the target card itself leaves space above it */
+  scroll-margin-top: var(--sticky-nav-offset);
+
   background: white;
   border-radius: 15px;
   overflow: hidden;
