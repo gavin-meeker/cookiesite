@@ -242,6 +242,7 @@ nav a:hover {
 }
 
 .cookie-image {
+    width: 100%;
     background-color: #ddd;
     background-position: center;
     background-size: cover;
